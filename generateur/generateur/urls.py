@@ -1,8 +1,9 @@
 
 from django.contrib import admin
-from django.urls import path, include 
+from django.urls import path,include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('cryptage/',include('cryptage.urls')),
+    path('',include('cryptage.urls')),
 ]

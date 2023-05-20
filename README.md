@@ -55,7 +55,10 @@ python manage.py startapp cryptage
 #la racine du projet est l'endroit où se trouve manage.py
 #faire reconnaitre le dossier static au projet on rentre dans le fichier settings.py
 #après la variable STATIC_URL qui est généralement à la ligne 119, on crée un variable
-# STATICFILES = BASE_DIR / 'static' 
+# STATICFILES_DIRS =[
+    BASE_DIR / "static",
+
+]
 
 ---- PARTIE 2 -----
 #explication de l'arboressence de l'application
@@ -76,11 +79,18 @@ python manage.py startapp cryptage
 #en incluant tous les fichiers urls des applications dans le fichier urls du dossier de configuration 
 #pour cela on rentre dans urls qui se trouve le fichier de configuration on importe le module include (on place ',' après path puis
 #on écrit include)
-#en fin dans la variable urlpatterns on ajoute à la fin path('cryptage/',include('cryptage.urls')),
+#en fin dans la variable urlpatterns on ajoute à la fin path('',include('cryptage.urls')),
 
 
 #affichage de la première page
 #pour afficher une page on doit modifier deux fichiers qui se trouvent tous dans l'application et qui sont urls.py et views.py
 #avant de modifier ces deux fichiers on doit créer le fichier html à afficher dans le templates des applications
 #puis on crée une fonction qui renvoie la page htlm qu'on a créé, et on associe une urls à cette fonction créée 
-#
+
+--partie 3---
+# MODIFICATION DU CONTENU DE LA PAGE HTML
+# on ouvre notre fichier index.html, puis on creer un fichier index.css dans le dossier css qui se trouve dans le dossier static
+#à l'interieur de index.html à la première ligne on charge les fichiers static en tapant
+# {% load static %}
+#puis on lie tous les fichier static 
+#le lien des fichier static doit être {% static 'chemin/nom.extension' %}
