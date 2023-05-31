@@ -94,3 +94,48 @@ python manage.py startapp cryptage
 # {% load static %}
 #puis on lie tous les fichier static 
 #le lien des fichier static doit être {% static 'chemin/nom.extension' %}
+
+-- PARTIE 4 ---
+
+# LES MODELS
+# les models sont des tables se trouvant dans le fichier models.py
+#Une table represente une classe, les champs represent les attributs
+
+#procedure
+
+#creons une classe Stock dans models.py
+#donnons des attributs à cette classe
+#voici quelques type de champ
+#CharField(pour les chaines de caractère)|parametre obligatoire(max_length=taille)
+#IntegerField( pour les entiers)
+#ImageField( Pour les images)| parameter (upload_to='nom_dossier')
+#DateTimeField( pour les dates et heures)
+#BoleanField( pour les bolens)
+#FileField( pour les fichiers)
+# les types de champs doivent êtres precedés par models.
+# apres la creation de la classe on appliques les migration en tapant
+python manage.py makemigrations
+python manage.py migrate
+
+#quelques methode de selection d'element
+#on lance le shell en tapant
+python manage.py shell
+
+#puis on saisi
+# from cryptage.models import Essaie
+
+#creation 
+# p=Essaie.objects.create(pseudo="salif",nb_enfant=1,maried=False)
+#p.save()
+# quelques operations
+#afficher tous (Essaie.objects.all() )
+# afficher le premier (Essaie.objects.first() )
+#afficher le dernier (Essaie.objects.last()  )
+#les filtres
+
+#NomClass.objects.filter(champ=valeur) permet de filter par champ
+#NomClass.objects.filter(champ__contains=valeur) afficher les champs qui contienent valeur
+#NomClass.objects.filter(champ__startswith=valeur) afficher les champs qui commencent par valeur
+#NomClass.objects.filter(champ__endswith=valeur) afficher les champs qui terminent par valeur
+
+
