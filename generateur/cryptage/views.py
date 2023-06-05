@@ -53,3 +53,11 @@ def home(request):
 
 
     return render(request,'cryptage/index.html')
+
+
+
+def list(request):
+
+    images=Stock.objects.all()
+
+    return render(request,'cryptage/list.html',{'images':images})
